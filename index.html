@@ -4,15 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calculus II 總複習筆記 · Day 1–8</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=JetBrains+Mono:wght@400;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
 <script>
-window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},startup:{typeset:true}};
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" id="MathJax-script" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 <style>
 :root{--bg:#0d0d0f;--sur:#13131a;--sur2:#1a1a24;--bor:#2a2a3a;--gd:#c8a96e;--bl:#7eb8c8;--pk:#c87ea0;--tx:#e8e4d8;--dm:#8a8478;--gr:#7ec89a;}
 *{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--tx);font-family:'Crimson Pro','Noto Serif TC',serif;font-size:17px;line-height:1.7;}
+body{background:var(--bg);color:var(--tx);font-family:'Noto Serif TC','Georgia',serif;font-size:17px;line-height:1.7;}
 .hero{text-align:center;padding:60px 20px 40px;border-bottom:1px solid var(--bor);}
 .hero h1{font-family:'Noto Serif TC',serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:900;color:var(--gd);margin-bottom:8px;}
 .hero p{color:var(--dm);font-style:italic;font-size:1rem;}
@@ -27,9 +29,8 @@ nav::-webkit-scrollbar{display:none;}
 .nb{background:none;border:none;color:var(--dm);font-family:'JetBrains Mono',monospace;font-size:0.7rem;padding:12px 14px;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;letter-spacing:0.04em;transition:all .2s;}
 .nb:hover,.nb.on{color:var(--gd);border-bottom-color:var(--gd);}
 .wrap{max-width:1080px;margin:0 auto;padding:40px 20px;}
-.sec{display:none;animation:fi .3s ease;}
-.sec.on{display:block;}
-@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.sec{display:none !important;}
+.sec.on{display:block !important;}
 .sec-hd{font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:700;color:var(--gd);margin-bottom:24px;padding-bottom:10px;border-bottom:1px solid var(--bor);display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .stag{font-family:'JetBrains Mono',monospace;font-size:0.62rem;background:rgba(200,169,110,0.1);color:var(--gd);padding:2px 7px;border-radius:3px;letter-spacing:.08em;}
 .card{background:var(--sur);border:1px solid var(--bor);border-radius:8px;margin-bottom:16px;overflow:hidden;transition:border-color .2s;}
@@ -104,6 +105,9 @@ tr:hover td{background:rgba(255,255,255,.02);}
 @media(max-width:660px){.fgrid{grid-template-columns:1fr;}.sig-tbl td:first-child{width:48%;}}
 mjx-container{overflow-x:auto;overflow-y:hidden;max-width:100%;}
 .core-bd .fbox mjx-container{margin:2px 0;}
+/* MathJax 未加載時的 fallback */
+.MathJax_SVG_Display,.MJX_Assistive_MathML{display:block;}
+.math-fallback{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--gr);background:rgba(126,200,154,.06);padding:6px 10px;border-radius:4px;display:block;margin:4px 0;white-space:pre-wrap;word-break:break-all;}
 </style>
 </head>
 <body>
@@ -1286,17 +1290,29 @@ C(m,n)   = m(m-1)···(m-n+1)/n!</div>
 
 <script>
 function S(id,btn){
-  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
-  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
-  document.getElementById(id).classList.add('on');
-  btn.classList.add('on');
+  var secs=document.querySelectorAll('.sec');
+  for(var i=0;i<secs.length;i++){secs[i].className='sec';}
+  var btns=document.querySelectorAll('.nb');
+  for(var i=0;i<btns.length;i++){btns[i].classList.remove('on');}
+  var el=document.getElementById(id);
+  if(el)el.className='sec on';
+  if(btn)btn.classList.add('on');
+  if(window.MathJax&&MathJax.typesetPromise)setTimeout(function(){MathJax.typesetPromise([el]);},100);
 }
 function T(h){
-  const b=h.nextElementSibling;
-  const o=b.classList.contains('on');
-  h.classList.toggle('on',!o);
-  b.classList.toggle('on',!o);
+  var b=h.nextElementSibling;
+  if(!b)return;
+  var open=b.classList.contains('on');
+  b.classList.toggle('on',!open);
+  h.classList.toggle('on',!open);
 }
+window.onload=function(){
+  var s4=document.getElementById('s4');
+  if(s4)s4.className='sec on';
+  var btns=document.querySelectorAll('.nb');
+  if(btns.length>0)btns[0].classList.add('on');
+  if(window.MathJax&&MathJax.typesetPromise)setTimeout(function(){MathJax.typesetPromise();},1000);
+};
 </script>
 </body>
 </html>
