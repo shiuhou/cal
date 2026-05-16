@@ -889,4 +889,333 @@ Odd: (-1)ⁿaₙ=-aₙ → even n: aₙ=0 ■</div>
 <tr><td>f(x)=cos x at x=0</td><td>Maclaurin</td><td>Σ(-1)ⁿx²ⁿ/(2n)!</td></tr>
 <tr><td>2x+x cos x</td><td>cos series×x+2x</td><td>3x-x³/2+x⁵/24-···</td></tr>
 <tr><td>½x²cos x</td><td>cos series×x²/2</td><td>x²/2-x⁴/4+x⁶/144-···</td></tr>
-<tr><td>|sin x-x
+<tr><td>|sin x-x+x³/3!|≤3×10⁻⁴</td><td>R₃≤x⁵/5!≤3×10⁻⁴</td><td>|x|≤(360×10⁻⁴)^(1/5)</td></tr>
+<tr><td>√(1+x)</td><td>Binomial m=1/2</td><td>1+x/2-x²/8+x³/16-···</td></tr>
+<tr><td>∫₀¹sin x² dx to 3dp</td><td>sin(x²)=x²-x⁶/6+···積分</td><td>≈1/3-1/42≈0.310</td></tr>
+<tr><td>lim(x→1) ln x/(x-1)</td><td>ln x=ln(1+(x-1))，t=x-1</td><td>1</td></tr>
+<tr><td>lim(x→0)(sin x-tan x)/x³</td><td>展開到 x³</td><td>-1/2</td></tr>
+<tr><td>lim(x→0)(csc x-1/x)</td><td>1/sin x展開</td><td>0</td></tr>
+</table>
+<div class="m">Euler's Identity: eⁱˣ=Σ(ix)ⁿ/n!=cos x+i sin x ■
+Leibniz: arctan(1)=Σ(-1)ⁿ/(2n+1)=1-1/3+1/5-···=π/4 ■
+ln 2: 1-1/2+1/3-···=Σ(-1)ⁿ⁻¹/n=ln 2 ■
+f(x)={0,x=0; e^(-1/x²),x≠0}: all f⁽ⁿ⁾(0)=0
+→ Maclaurin series=0 ≠ f(x) for x≠0 (converges everywhere but only equals f at x=0)</div>
+</div></div>
+</div>
+
+<!-- ⑦ 用級數求極限 — FIXED: added core block -->
+<div id="s7" class="sec">
+<div class="sec-title">⑦ 用級數求極限 <span class="stag">CW12</span></div>
+<div class="core">
+<div class="core-hd"><span class="ci">考點核心</span><span class="ctt">x→0 的 0/0 型極限：用 Maclaurin Series 代替 L'Hôpital</span></div>
+<div class="core-bd">
+<div class="blk">
+<div class="blk-t t-key">核心概念</div>
+<div class="concept-txt">當極限是 \(x\to0\) 的 \(\frac{0}{0}\) 型，用 Maclaurin 展開比 L'Hôpital 快得多。<strong>展開分子分母至最低次非零項</strong>，約分後代 \(x=0\) 即得答案。關鍵：展開到比分母最低次<strong>高一階</strong>就夠。</div>
+</div>
+<div class="blk">
+<div class="blk-t">信號 → 方法</div>
+<table class="sig-tbl">
+<tr><th>見到咩</th><th>用咩方法</th></tr>
+<tr><td>\(\lim_{x\to0}\) 分子分母都趨 0</td><td><span class="arr">→</span> 展開 Maclaurin，約去最低次 \(x^n\)</td></tr>
+<tr><td>\(\lim_{x\to1}\) 含 \(\ln x\)</td><td><span class="arr">→</span> 令 \(t=x-1\)，用 \(\ln(1+t)\) 展開</td></tr>
+<tr><td>含 \(\csc x - 1/x\)</td><td><span class="arr">→</span> 通分 \(\frac{x-\sin x}{x\sin x}\)，再展開</td></tr>
+<tr><td>分子比分母高次</td><td><span class="arr">→</span> 展開時保留足夠多項，不要太早截斷</td></tr>
+</table>
+</div>
+<div class="blk">
+<div class="blk-t t-key">常用展開(x→0)</div>
+<div class="fbox">
+\[\sin x=x-\frac{x^3}{6}+\frac{x^5}{120}-\cdots\qquad \cos x=1-\frac{x^2}{2}+\frac{x^4}{24}-\cdots\]
+\[\tan x=x+\frac{x^3}{3}+\frac{2x^5}{15}+\cdots\qquad e^x=1+x+\frac{x^2}{2}+\frac{x^3}{6}+\cdots\]
+\[\ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots\qquad \arctan x=x-\frac{x^3}{3}+\frac{x^5}{5}-\cdots\]
+</div>
+</div>
+<div class="blk">
+<div class="blk-t t-flow">決策流程</div>
+<div class="flow">見到 lim(x→0) 0/0 型
+Step 1: 展開分子 — 到能消去分母最低次為止
+Step 2: 展開分母
+Step 3: 兩者同除最低次 xⁿ
+Step 4: 代 x=0，高次項全消，答案出現
+
+<span class="fy">特殊：</span>
+lim(x→1): 令 t=x-1 → 化成 lim(t→0)
+csc x - 1/x: 通分 → (x-sin x)/(x sin x) → 展開</div>
+</div>
+<div class="blk">
+<div class="blk-t t-trap">細節陷阱</div>
+<ul class="trap-list">
+<li><strong>展開項數不夠</strong> — <span class="fix">如果分子展開後最低次消掉了，要繼續展開更高次項</span></li>
+<li><strong>tan x 記錯</strong> — <span class="fix">\(\tan x = x + \frac{x^3}{3} + \cdots\)，不是 \(x - \frac{x^3}{6}\)（那是 sin x）</span></li>
+<li><strong>arctan 和 sin 搞混</strong> — <span class="fix">\(\arctan x = x - \frac{x^3}{3} + \cdots\)；\(\sin x = x - \frac{x^3}{6} + \cdots\)，係數不同</span></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cards-hd">練習題 &amp; 解題範例</div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">核心策略</span><span class="ct">x→0 的 0/0 型 — 用 Maclaurin Series</span><span class="chev">▼</span></div>
+<div class="cb">
+<ul class="trap-list">
+<li>見到 lim(x→0)，分子分母都→0 → 展開 Maclaurin</li>
+<li>展開到比分母最低次高一階就夠</li>
+<li>分子分母同除最低次 xⁿ</li>
+<li>代 x=0，高次項消失，答案出現</li>
+<li>比 L'Hôpital 快！唔需要反覆微分</li>
+</ul>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">題目總表</span><span class="ct">所有 Limit 題答案一覽</span><span class="chev">▼</span></div>
+<div class="cb">
+<table>
+<tr><th>題目</th><th>分子關鍵展開</th><th>答案</th></tr>
+<tr><td>(tan⁻¹y-sin y)/(y³cos y)</td><td>-y³/3+y³/6=-y³/6</td><td>-1/6</td></tr>
+<tr><td>(1-cos x)/(1+x-eˣ)</td><td>x²/2 vs -x²/2</td><td>-1</td></tr>
+<tr><td>(sin x-x+x³/6)/x⁵</td><td>x⁵/120</td><td>1/120</td></tr>
+<tr><td>(eˣ-e^sinx)/(x-sinx)</td><td>≈x-sinx</td><td>1</td></tr>
+<tr><td>(e^x²-cos x)/(ln(1+x)-sinx)</td><td>3x²/2 vs -x²/2</td><td>-3</td></tr>
+<tr><td>ln x/(x-1) as x→1</td><td>令t=x-1，ln(1+t)/t→1</td><td>1</td></tr>
+<tr><td>(sin x-tan x)/x³</td><td>展開tan x=x+x³/3+···</td><td>-1/2</td></tr>
+<tr><td>(csc x-1/x) as x→0</td><td>1/sin x-1/x=(x-sinx)/(xsinx)</td><td>0</td></tr>
+</table>
+</div></div>
+</div>
+
+<!-- ⑧ ODE CW13 -->
+<div id="s9" class="sec">
+<div class="sec-title">⑧ 一階微分方程 <span class="stag">CW13</span></div>
+<div class="core">
+<div class="core-hd"><span class="ci">考點核心</span><span class="ctt">可分離、一階線性、Euler's Method</span></div>
+<div class="core-bd">
+<div class="blk">
+<div class="blk-t t-key">核心概念</div>
+<div class="concept-txt">方程的未知量是<strong>函數 \(y(x)\)</strong>，且涉及它的導數。CW13 學三招:<strong>① 可分離</strong>(右邊能寫成 \(f(x)\cdot g(y)\))→ 兩邊分開積分;<strong>② 一階線性</strong>(\(y'+P(x)y=Q(x)\))→ 積分因子;<strong>③ Euler's Method</strong> → 數值逐步近似。識別類型是第一步。</div>
+</div>
+<div class="blk">
+<div class="blk-t">信號 → 方法</div>
+<table class="sig-tbl">
+<tr><th>見到咩</th><th>用咩方法</th></tr>
+<tr><td>\(dy/dx=f(x)\cdot g(y)\)，\(x\) 和 \(y\) 可完全分開</td><td><span class="arr">→</span> <strong>分離變數</strong>:\(\int dy/g(y)=\int f(x)dx\)</td></tr>
+<tr><td>\(y'+P(x)y=Q(x)\) 形式</td><td><span class="arr">→</span> <strong>積分因子</strong> \(\mu=e^{\int P\,dx}\)</td></tr>
+<tr><td>兩者皆可(\(y'=xy\) 等)</td><td><span class="arr">→</span> 分離變數更快</td></tr>
+<tr><td>給初始值 + 步長，問近似值</td><td><span class="arr">→</span> <strong>Euler's Method</strong> 填表</td></tr>
+<tr><td>驗證某函數是解</td><td><span class="arr">→</span> 代入 \(y,y'\) 驗等式；有 IC 再驗初始值</td></tr>
+<tr><td>匹配 Slope Field</td><td><span class="arr">→</span> 代特殊點 \((0,0),(1,0),(0,1)\) 看斜率正負</td></tr>
+</table>
+</div>
+<div class="blk">
+<div class="blk-t t-key">核心公式</div>
+<div class="fgrid">
+<div class="fbox"><div class="fbl">分離變數</div>\[\frac{dy}{dx}=f(x)g(y)\implies\int\frac{dy}{g(y)}=\int f(x)\,dx\]</div>
+<div class="fbox"><div class="fbl">積分因子法</div>
+\[\frac{dy}{dx}+P(x)y=Q(x)\]
+\[\mu=e^{\int P\,dx},\quad \mu y=\int\mu Q\,dx+C\]</div>
+<div class="fbox"><div class="fbl">Euler's Method</div>\[x_{n+1}=x_n+\Delta x\]\[y_{n+1}=y_n+f(x_n,y_n)\cdot\Delta x\]</div>
+</div>
+</div>
+<div class="blk">
+<div class="blk-t t-flow">決策流程</div>
+<div class="flow">看到 ODE → <span class="fy">先化成標準形式</span>
+<span class="fy">├</span> 右邊能分成 f(x)·g(y)? → <span class="fy">分離變數</span>
+<span class="fy">├</span> 形如 y'+P(x)y=Q(x)?  → <span class="fy">積分因子</span>
+<span class="fy">└</span> 給初始值+步長，問近似? → <span class="fy">Euler's Method</span>
+<span class="fc">有 Initial Condition → 解完代入求 C</span></div>
+</div>
+<div class="blk">
+<div class="blk-t t-trap">細節陷阱</div>
+<ul class="trap-list">
+<li><strong>未化標準形就套積分因子</strong> — <span class="fix">\(y'\) 前面係數必須是 1！如 \(2y'+4y=6\) 先除以 2</span></li>
+<li><strong>積分因子寫錯</strong> — <span class="fix">\(\mu=e^{\int P\,dx}\)，不是 \(e^P\)！</span></li>
+<li><strong>分離變數忘記常數解</strong> — <span class="fix">\(g(y)=0\) 對應的常數解 \(y=c\) 要單獨檢查</span></li>
+<li><strong>積分後忘記 \(+C\)</strong> — <span class="fix">不定積分必須加常數</span></li>
+<li><strong>Euler's Method 用上一步的斜率</strong> — <span class="fix">每步用<strong>當前</strong>點 \((x_n,y_n)\) 的斜率</span></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cards-hd">練習題 &amp; 解題範例</div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">識別</span><span class="ct">ODE 類型識別流程</span><span class="chev">▼</span></div>
+<div class="cb">
+<table>
+<tr><th>見到咩</th><th>類型</th><th>方法</th></tr>
+<tr><td>dy/dx=f(x)·g(y)</td><td>Separable</td><td>分離 dy/g(y)=f(x)dx，積分</td></tr>
+<tr><td>dy/dx+P(x)y=Q(x)</td><td>Linear 1st Order</td><td>Integrating factor μ=e^∫P dx</td></tr>
+<tr><td>dy/dx+P(x)y=Q(x)yⁿ</td><td>Bernoulli</td><td>令v=y^(1-n)→Linear</td></tr>
+<tr><td>(f(y)-x)y'=1</td><td>Linear in x</td><td>改寫dx/dy+x=f(y)</td></tr>
+<tr><td>數值方法</td><td>Euler's Method</td><td>yₙ₊₁=yₙ+f(xₙ,yₙ)·Δx</td></tr>
+</table>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">LINEAR</span><span class="ct">Linear 1st Order ODE — Integrating Factor 步驟</span><span class="chev">▼</span></div>
+<div class="cb">
+<ul class="trap-list">
+<li>除以 leading coefficient → dy/dx+P(x)y=Q(x)</li>
+<li>求 μ=e^(∫P dx)</li>
+<li>兩邊乘 μ → 左邊係 d/dx(μy)</li>
+<li>積分 μy=∫μQ dx+C</li>
+<li>有 initial condition → 代入求 C</li>
+</ul>
+<div class="m">A10 Q3: x dy/dx+2y=cos x/x → dy/dx+2y/x=cos x/x²
+μ=x², d/dx(x²y)=cos x → x²y=sin x+C → y=(sin x+C)/x²
+
+A10 Q4: θ dy/dθ-2y=θ³secθtanθ → μ=θ⁻²
+d/dθ(y/θ²)=secθtanθ → y=θ²(secθ+C)
+y(π/3)=2: C=18/π²-2</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">BERN</span><span class="ct">Bernoulli ODE + Linear in x</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="g3">
+<div class="box"><div class="bl s">Bernoulli</div><p>右邊有 yⁿ (n≠0,1)<br>令 v=y^(1-n)<br>dv/dx+(1-n)Pv=(1-n)Q</p></div>
+<div class="box"><div class="bl t">Linear in x</div><p>(f(y)-x)y'=1<br>→ dx/dy=f(y)-x<br>→ dx/dy+x=f(y)</p></div>
+<div class="box"><div class="bl k">例子</div><p>dy/dx=y/x-2y²<br>n=2，v=1/y<br>dv/dx+v/x=2→y=x/(x²+1)</p></div>
+</div>
+<div class="m">(2eʸ-x)y'=1 → dx/dy+x=2eʸ
+μ=eʸ → d/dy(xeʸ)=2e²ʸ → x=eʸ+Ce^(-y)</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">EULER</span><span class="ct">Euler's Method</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="g3">
+<div class="box"><div class="bl t">公式</div><p>xₙ₊₁=xₙ+Δx<br>yₙ₊₁=yₙ+f(xₙ,yₙ)·Δx</p></div>
+<div class="box"><div class="bl k">記法</div><p>x：每步固定加 Δx<br>y：上一步(x,y)求斜率估計</p></div>
+<div class="box"><div class="bl s">特殊情況</div><p>Exact solution 係直線時 Euler 完全準確</p></div>
+</div>
+<div class="m">CW13 Q4: y'=1+y, y(0)=1, Δx=0.1
+y₁=1+(1+1)·0.1=1.2
+y₂=1.2+(1+1.2)·0.1=1.42
+y₃=1.42+(1+1.42)·0.1=1.662
+
+A10 Q2: y'=y/x, y(1)=2 → y₁=2.4, y₂=2.8, y₃=3.2, y₄=3.6, y₅=4.0
+Exact: y=2x → y(2)=4 (Euler 完全準確，因係直線)</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">CW13</span><span class="ct">Classwork 13 — ODE 綜合</span><span class="chev">▼</span></div>
+<div class="cb">
+<table>
+<tr><th>ODE</th><th>類型</th><th>解</th></tr>
+<tr><td>y'=e^(x+y)</td><td>Separable</td><td>y=-ln(-eˣ-C)</td></tr>
+<tr><td>y'-xy=0</td><td>Separable</td><td>y=Ae^(x²/2)</td></tr>
+<tr><td>(x²+1)y'=xy，y(1)=0</td><td>Separable</td><td>y=0 (IC gives C→y=0)</td></tr>
+<tr><td>y'+3x²y=6x²</td><td>Linear</td><td>μ=e^(x³)，y=2+Ce^(-x³)</td></tr>
+<tr><td>xy'-3y=x (y'-3y/x=1)</td><td>Linear</td><td>μ=x⁻³，y=-x²+Cx³</td></tr>
+<tr><td>3xy'-y=ln x+1，y(1)=-2</td><td>Linear</td><td>μ=x^(-1/3)，代IC求C</td></tr>
+</table>
+<div class="m">Verify solution 步驟:
+Q1: y=C/x+2, dy/dx=-C/x²
+(2-y)/x=(2-C/x-2)/x=-C/x² = dy/dx ✓
+
+Q2: y=(x+1)-eˣ/3, dy/dx=1-eˣ/3
+y-x=(x+1-eˣ/3)-x=1-eˣ/3=dy/dx ✓
+y(0)=(0+1)-e⁰/3=1-1/3=2/3 ✓
+
+Slope field matching: 代特殊點(0,0),(1,0),(0,1)
+y'=y-x²: (0,0)→0, (1,0)→-1, (0,1)→1</div>
+</div></div>
+</div>
+
+<!-- ★ 決策樹總表 — FIXED: added core block -->
+<div id="s10" class="sec">
+<div class="sec-title">★ 決策樹總表 <span class="stag">CHEAT SHEET</span></div>
+<div class="core">
+<div class="core-hd"><span class="ci">考點核心</span><span class="ctt">終極速查：見到題目信號 → 立即知道用咩方法</span></div>
+<div class="core-bd">
+<div class="blk">
+<div class="blk-t t-key">核心概念</div>
+<div class="concept-txt">這頁是全科總結。考試見到任何題目，先在這裡找「信號」，配對方法，再翻對應章節確認公式。涵蓋：<strong>極座標、數列級數、收斂測試、冪級數、Taylor、ODE</strong> 所有考點。</div>
+</div>
+<div class="blk">
+<div class="blk-t t-flow">總覽：各章觸發信號</div>
+<div class="flow"><span class="fy">極座標</span>  → 轉換/切線/面積/弧長 → 見 ① 頁
+<span class="fy">數列極限</span> → 除最高次/夾擠/有理化/eᵃ → 見 ③ 頁
+<span class="fy">收斂測試</span> → nth-term/p-series/Ratio/Root/LCT/AST → 見 ④ 頁
+<span class="fy">冪級數</span>   → Ratio求R/代端點/逐項微積分 → 見 ⑤ 頁
+<span class="fy">Taylor</span>   → 查表/替換/Binomial/餘項估計 → 見 ⑥ 頁
+<span class="fy">極限</span>     → Maclaurin展開約分 → 見 ⑦ 頁
+<span class="fy">ODE</span>      → 分離/積分因子/Euler → 見 ⑧ 頁</div>
+</div>
+</div>
+</div>
+<div class="cards-hd">練習題 &amp; 解題範例</div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">MASTER</span><span class="ct">終極總結：見到 → 用咩</span><span class="chev">▼</span></div>
+<div class="cb">
+<table>
+<tr><th>見到咩</th><th>用咩</th></tr>
+<tr><td>1/(1±x) 形式</td><td>Geometric Series，改寫分子</td></tr>
+<tr><td>f(g(x)) composition</td><td>Substitute g(x) into known series</td></tr>
+<tr><td>(1+x)^m，m 係分數/負數</td><td>Binomial Series，C(m,n)</td></tr>
+<tr><td>分母有 (1-x²)，(1+x²)</td><td>Geometric or arctan substitution</td></tr>
+<tr><td>逆向：分母有 n!，有 aⁿ</td><td>認出係 eˣ 形式，提公因子</td></tr>
+<tr><td>(-1)ⁿ 開頭 series</td><td>AST；再問 abs/cond → 驗 Σ|aₙ|</td></tr>
+<tr><td>分母有 n!，aⁿ</td><td>Ratio Test</td></tr>
+<tr><td>整個 term 係 (...)ⁿ</td><td>Root Test 或 Geometric</td></tr>
+<tr><td>lim(x→0)，0/0 型</td><td>Maclaurin Series 展開</td></tr>
+<tr><td>lim(x→1) 含 ln x</td><td>令 t=x-1，用 ln(1+t)</td></tr>
+<tr><td>√(n²+an)-n</td><td>Rationalize</td></tr>
+<tr><td>(1+a/n)^(bn)</td><td>eᵃᵇ 定義</td></tr>
+<tr><td>Recursive sequence</td><td>假設 L=f(L)，解方程；嚴謹需 bounded+monotone</td></tr>
+<tr><td>Error&lt;tolerance，alternating</td><td>|Rₙ|≤aₙ₊₁&lt;tolerance</td></tr>
+<tr><td>Error Pₙ 估計 f</td><td>M/(n+1)!·|x-a|ⁿ⁺¹</td></tr>
+<tr><td>dy/dx+Py=Q</td><td>Integrating Factor μ=e^∫P</td></tr>
+<tr><td>右邊有 yⁿ</td><td>Bernoulli，v=y^(1-n)</td></tr>
+<tr><td>Polar，求切線</td><td>dy/dx=(r'sinθ+rcosθ)/(r'cosθ-rsinθ)</td></tr>
+<tr><td>Polar，面積差</td><td>½∫(r₁²-r₂²)dθ，交點間</td></tr>
+<tr><td>Polar，arc length</td><td>∫√(r²+r'²)dθ</td></tr>
+<tr><td>Polar→Cartesian</td><td>乘 r，用 r²=x²+y²，rcosθ=x，rsinθ=y</td></tr>
+<tr><td>Polar 漸近線</td><td>x=rcosθ，取 r→∞ 時 lim</td></tr>
+<tr><td>兩 polar curves ⊥</td><td>斜率積=-1 或一垂直一水平</td></tr>
+<tr><td>Verify ODE solution</td><td>代入 y, y' 驗等式</td></tr>
+<tr><td>Slope field</td><td>代特殊點 (0,0),(1,0),(0,1) 睇斜率</td></tr>
+<tr><td>Improper ∫ + 難積分</td><td>IBP + Partial Fractions</td></tr>
+<tr><td>∫₀ᵃ sinⁿ/(sinⁿ+cosⁿ)</td><td>對稱技巧：加 f(a-x) 版本，2I=∫1</td></tr>
+<tr><td>Parametric area</td><td>A=∫y·(dx/dt)dt，注意方向</td></tr>
+<tr><td>Torus volume</td><td>Pappus: V=2π²Rr²</td></tr>
+<tr><td>Euler's Identity eⁱˣ</td><td>展開 eⁱˣ，分拆 real/imaginary</td></tr>
+<tr><td>Leibniz π/4</td><td>arctan(1)=Σ(-1)ⁿ/(2n+1)</td></tr>
+</table>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">TABLE</span><span class="ct">Table 10.1 — Frequently Used Taylor Series</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="m">1/(1-x)  = Σ xⁿ，                      |x|&lt;1
+1/(1+x)  = Σ (-1)ⁿxⁿ，                 |x|&lt;1
+eˣ       = Σ xⁿ/n!，                    all x
+sin x    = Σ (-1)ⁿx^(2n+1)/(2n+1)!，   all x
+cos x    = Σ (-1)ⁿx^(2n)/(2n)!，        all x
+ln(1+x)  = Σ (-1)ⁿ⁻¹xⁿ/n，            -1&lt;x≤1
+arctan x = Σ (-1)ⁿx^(2n+1)/(2n+1)，   |x|≤1
+(1+x)^m  = Σ C(m,n)xⁿ，               |x|&lt;1
+C(m,n)   = m(m-1)···(m-n+1)/n!</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">TESTS</span><span class="ct">Series Test 選擇速查</span><span class="chev">▼</span></div>
+<div class="cb">
+<table>
+<tr><th>Test</th><th>用時機</th><th>結論</th></tr>
+<tr><td>nth-Term</td><td>lim aₙ≠0</td><td>Diverges（唔能 prove converge）</td></tr>
+<tr><td>Geometric</td><td>Σarⁿ 形式</td><td>|r|&lt;1: S=a/(1-r)；|r|≥1: Diverge</td></tr>
+<tr><td>p-series</td><td>Σ1/nᵖ</td><td>p&gt;1 conv，p≤1 div</td></tr>
+<tr><td>AST</td><td>(-1)ⁿ，需驗 dec+→0</td><td>Converges（但唔一定 abs）</td></tr>
+<tr><td>Integral</td><td>含 ln n，連續正遞減</td><td>同 ∫f dx 同結論</td></tr>
+<tr><td>DCT</td><td>搵到明顯 bound</td><td>Squeeze above/below</td></tr>
+<tr><td>LCT</td><td>有理函數形式</td><td>lim aₙ/bₙ=L (0&lt;L&lt;∞) → 同 bₙ</td></tr>
+<tr><td>Ratio</td><td>有 n! 或 aⁿ</td><td>L&lt;1 conv，L&gt;1 div，L=1 inconclusive</td></tr>
+<tr><td>Root</td><td>整 term 係 n次方</td><td>同 Ratio 標準</td></tr>
+</table>
+</div></div>
+</div>
+
+</div><!-- end .wrap -->
+
+<script>
+function S(id,btn){
+  document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('on');});
+  document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('on');});
+  var el=document.getElementById(id);
+  if(el)el.classList.add('on');
+  if(btn)btn.classList.add('on');
+}
+function T(h){
+  var b=h.nextElementSibling;
+  if(!b)return;
+  var isOpen=b.classList.contains('on');
+  b.classList.toggle('on',!isOpen);
+  h.classList.toggle('on',!isOpen);
+}
+</script>
+</body>
+</html>
