@@ -585,4 +585,307 @@ Q3/4: lim|aₙ₊₁/aₙ|=1 或 lim ⁿ√|aₙ|=1 時 test 失效
 Q5: aₙ={n/2ⁿ odd; 2⁻ⁿ even} → Ratio on odd subseq →1/4 → Converges</div>
 </div></div>
 <div class="card"><div class="ch" onclick="T(this)"><span class="qn">PROOF</span><span class="ct">Proof: Σaₙ conv (aₙ≥0) → Σaₙ² conv</span><span class="chev">▼</span></div>
+<div class="cb"><ul class="trap-list">
+<li>Σaₙ converges → aₙ→0 → ∃N: n&gt;N時 aₙ&lt;1</li>
+<li>當 aₙ&lt;1 且 aₙ≥0：aₙ²&lt;aₙ</li>
+<li>By DCT: Σ(n&gt;N)aₙ²≤Σaₙ&lt;∞</li>
+<li>前N項有限 → Σaₙ² converges ■</li>
+</ul>
+</div></div>
+</div>
+
+<!-- ⑤ 冪級數 CW11 — FIXED: added core block -->
+<div id="s3" class="sec">
+<div class="sec-title">⑤ 冪級數 <span class="stag">CW11</span></div>
+<div class="core">
+<div class="core-hd"><span class="ci">考點核心</span><span class="ctt">收斂半徑、端點檢查、逐項微分/積分</span></div>
+<div class="core-bd">
+<div class="blk">
+<div class="blk-t t-key">核心概念</div>
+<div class="concept-txt">冪級數 \(\sum a_n(x-c)^n\) 是「含 \(x\) 的級數」，不同的 \(x\) 值決定收或發。三步走:<strong>① Ratio Test 求 \(R\)</strong> → <strong>② 代入兩端點各自判斷</strong> → <strong>③ 寫出最終收斂區間(注意開/閉括號)</strong>。在收斂區間內可以<strong>逐項微分和積分</strong>，用來把已知級數推導出新函數。</div>
+</div>
+<div class="blk">
+<div class="blk-t">信號 → 方法</div>
+<table class="sig-tbl">
+<tr><th>見到咩</th><th>用咩方法</th></tr>
+<tr><td>求冪級數收斂半徑 \(R\)</td><td><span class="arr">→</span> Ratio Test:\(L=\lim|a_{n+1}/a_n|\)，\(R=1/L\)</td></tr>
+<tr><td>求收斂區間</td><td><span class="arr">→</span> 求完 \(R\) 後，代入 \(x=c\pm R\) 各自用 p-test / Leibniz</td></tr>
+<tr><td>表達函數為冪級數</td><td><span class="arr">→</span> 從 \(\frac{1}{1-x}=\sum x^n\) 出發：替換、微分或積分</td></tr>
+<tr><td>冪級數含 \(n!\)</td><td><span class="arr">→</span> Ratio → 通常 \(R=\infty\) 或 \(R=0\)</td></tr>
+<tr><td>幾何級數形式 \(\sum r^n\)</td><td><span class="arr">→</span> 直接 \(|r|&lt;1\) 解不等式，不用 Ratio</td></tr>
+</table>
+</div>
+<div class="blk">
+<div class="blk-t t-key">核心公式</div>
+<div class="fgrid">
+<div class="fbox"><div class="fbl">收斂半徑</div>\[R=\frac{1}{\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|}\] \(L=0\Rightarrow R=\infty;\quad L=\infty\Rightarrow R=0\)</div>
+<div class="fbox"><div class="fbl">逐項微分 &amp; 積分</div>
+\[f'(x)=\sum na_n(x-c)^{n-1}\]
+\[\int f(x)\,dx=\sum\frac{a_n}{n+1}(x-c)^{n+1}+C\]
+<span style="color:var(--muted);font-size:.8rem;">收斂半徑不變，但端點可能改變！</span></div>
+</div>
+<div class="fbox"><div class="fbl">出發點(★必記)</div>\[\frac{1}{1-x}=\sum_{n=0}^{\infty}x^n,\quad |x|<1\]</div>
+</div>
+<div class="blk">
+<div class="blk-t t-flow">決策流程</div>
+<div class="flow"><span class="fy">冪級數收斂區間</span>
+Step 1: Ratio Test → L|x-c| &lt; 1 → R = 1/L
+Step 2: 代入 x = c+R → 變成數字級數 → 用 p-test / Leibniz / nth-term
+Step 3: 代入 x = c-R → 同上
+Step 4: 寫出最終區間 → <span class="fy">四種可能: () [] [) (]</span>
+
+<span class="fy">表達函數為冪級數</span>
+從 1/(1-x) = Σxⁿ 出發
+ ├ 1/(1+x):  x → -x
+ ├ ln(1+x):  對 1/(1+x) 積分
+ ├ arctan x: 對 1/(1+x²) 積分
+ └ (1-x)⁻²: 對 1/(1-x) 微分</div>
+</div>
+<div class="blk">
+<div class="blk-t t-trap">細節陷阱</div>
+<ul class="trap-list">
+<li><strong>求完 \(R\) 就直接寫開區間</strong> — <span class="fix">端點 \(x=c\pm R\) 必須單獨檢查，可能是 [、(、]、)</span></li>
+<li><strong>微分/積分後端點直接抄</strong> — <span class="fix">\(R\) 不變，但端點收斂性可能改變</span></li>
+<li><strong>中心 \(c\ne0\) 時忘記平移</strong> — <span class="fix">如 \(\sum\frac{(2-x)^n}{n4^n}\) 中心是 \(c=2\) 不是 0</span></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cards-hd">練習題 &amp; 解題範例</div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">流程</span><span class="ct">Power Series 標準解題流程</span><span class="chev">▼</span></div>
 <div class="cb">
+<ul class="trap-list">
+<li>Ratio Test → L=|x-a|·K → R=1/K</li>
+<li>得 open interval (a-R, a+R)</li>
+<li>逐個 endpoint 代入：AST/p-series 判斷 [ 或 (</li>
+<li>Absolutely converge=open interval；Conditionally=endpoint where AST passes but |aₙ| diverges</li>
+</ul>
+<div class="m">ρ&lt;1 → R=1/L，收斂 (-R+a, R+a)
+ρ=0 → R=∞，全 ℝ
+ρ&gt;1 → R=0，只在 x=a</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">CW11</span><span class="ct">Convergence Intervals 一覽</span><span class="chev">▼</span></div>
+<div class="cb">
+<table>
+<tr><th>Series</th><th>R</th><th>Interval</th></tr>
+<tr><td>Σ(-1)ⁿ⁺¹/(2n-1)·xⁿ</td><td>1</td><td>[-1,1]</td></tr>
+<tr><td>Σxⁿ/n!</td><td>∞</td><td>(-∞,∞)</td></tr>
+<tr><td>Σn!xⁿ</td><td>0</td><td>{0}</td></tr>
+<tr><td>Σ(-x)ⁿ/n</td><td>1</td><td>[-1,1)</td></tr>
+<tr><td>Σ(2-x)ⁿ/(n·4ⁿ)</td><td>4，center 2</td><td>(-2,6)</td></tr>
+<tr><td>Σxⁿ/n√n</td><td>1</td><td>[-1,1]</td></tr>
+<tr><td>Σ(-1)ⁿx^(n+1)/√(n+3)</td><td>1</td><td>(-1,1]</td></tr>
+<tr><td>Σ(-1)ⁿ3²ⁿ(x-2)ⁿ/(3n)</td><td>1/9，center 2</td><td>(17/9,19/9]</td></tr>
+</table>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">EXPRESS</span><span class="ct">Express function as power series — 微分/積分技巧</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="m">d/dx[1/(1-x)] = 1/(1-x)² = Σnxⁿ⁻¹，|x|&lt;1
+∫1/(1+x)dx = ln(1+x) = Σ(-1)ⁿxⁿ⁺¹/(n+1)，|x|≤1
+1/(1-x²) = Σx²ⁿ (substitute x²)
+∫1/(1+t²)dt = arctan x = Σ(-1)ⁿx²ⁿ⁺¹/(2n+1)</div>
+<div class="m">CW11 Q5: ln(1+x)→d/dx→1/(1+x)=Σ(-x)ⁿ→積分→ln(1+x)=Σ(-1)ⁿxⁿ⁺¹/(n+1)
+(1-x)⁻² = d/dx[1/(1-x)] = Σnxⁿ⁻¹ = Σ(n+1)xⁿ</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">TUT Q6</span><span class="ct">f(x)=Σnxⁿ⁺¹/(n+1)! — elementary function + eval</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="g3">
+<div class="box"><div class="bl s">見到咩</div><p>分母有(n+1)!，Ratio→L=0 for all x</p></div>
+<div class="box"><div class="bl t">技巧</div><p>拆 n=(n+1)-1<br>對比 eˣ series</p></div>
+<div class="box"><div class="bl k">結果</div><p>f(x)=(x-1)eˣ+1</p></div>
+</div>
+<div class="m">Σnxⁿ⁺¹/(n+1)! = x·Σxⁿ/n! - Σxⁿ⁺¹/(n+1)!
+= x(eˣ-1)-(eˣ-1-x) = (x-1)eˣ+1
+
+Q6c: Σ2ⁿn/(n+2)! = Σ(n+2-2)2ⁿ/(n+2)!
+= Σ2ⁿ/(n+1)! - 2Σ2ⁿ/(n+2)! = (e²-3)/2 - (e²-5)/2 = 1
+
+Q6d: Taylor at x=1: 令t=x-1, f=t·e^(t+1)+1=et·eᵗ+1
+= 1+eΣtⁿ⁺¹/n! = 1+Σe(x-1)ⁿ⁺¹/n!</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">TUT Q7</span><span class="ct">f(x)=Σ(-x²)ⁿ/(4n²-1) — partial fractions + arctan</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="g3">
+<div class="box"><div class="bl s">見到咩</div><p>4n²-1=(2n-1)(2n+1) → Partial fractions!</p></div>
+<div class="box"><div class="bl t">分解</div><p>1/(4n²-1)=½[1/(2n-1)-1/(2n+1)]</p></div>
+<div class="box"><div class="bl k">對比</div><p>arctan x/x=Σ(-1)ⁿx²ⁿ/(2n+1)</p></div>
+</div>
+<div class="ans"><strong>ANSWER</strong>½[1-(x+1/x)arctan x]，x∈[-1,1]\{0}</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">TUT Q8</span><span class="ct">f(x)=(x+1)⁻² Taylor at x=1 + convergence proof</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="g3">
+<div class="box"><div class="bl s">見到咩</div><p>(x+1)⁻² at x=1 → 令t=x-1，x+1=t+2</p></div>
+<div class="box"><div class="bl t">方法</div><p>¼(1+t/2)⁻²，用(1+u)⁻²=Σ(-1)ⁿ(n+1)uⁿ</p></div>
+<div class="box"><div class="bl k">Proof</div><p>Taylor Remainder→|Rₙ|→0<br>用 M·|x-1|ⁿ⁺¹/(n+1)!→0</p></div>
+</div>
+<div class="ans"><strong>ANSWER</strong>Σ(-1)ⁿ(n+1)/2^(n+2)·(x-1)ⁿ，x∈(-1,3)</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">TUT Q9</span><span class="ct">Σn²/n! = 2e — 拆技巧</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="g3">
+<div class="box"><div class="bl s">見到咩</div><p>Σn²/n!，分母有n!</p></div>
+<div class="box"><div class="bl t">技巧</div><p>n²=n(n-1)+n<br>消去分母因子</p></div>
+<div class="box"><div class="bl k">結果</div><p>n(n-1)/n!=1/(n-2)!→e<br>n/n!=1/(n-1)!→e</p></div>
+</div>
+<div class="ans"><strong>ANSWER</strong>e+e=2e</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">GEO</span><span class="ct">Geometric Series as Function + Integration</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="m">Σ((x²-1)/2)ⁿ = 1/(1-r)，r=(x²-1)/2
+→ 2/(3-x²)，x∈(-√3,√3)
+
+Σ(-1/2)ⁿ(x-3)ⁿ: r=-(x-3)/2，sum=2/(x-1)，x∈(1,5)
+
+Term-by-term integration: Σ(-1/2)ⁿ(x-3)ⁿ⁺¹/(n+1)=2ln|x-1|，x∈(1,5]</div>
+</div></div>
+</div>
+
+<!-- ⑥ Taylor CW12 — FIXED: added core block -->
+<div id="s1" class="sec">
+<div class="sec-title">⑥ Taylor &amp; Maclaurin 級數 <span class="stag">CW12</span></div>
+<div class="core">
+<div class="core-hd"><span class="ci">考點核心</span><span class="ctt">Taylor 展開、必背表、餘項估計、二項級數</span></div>
+<div class="core-bd">
+<div class="blk">
+<div class="blk-t t-key">核心概念</div>
+<div class="concept-txt">把函數用多項式(無窮項)表示。<strong>Maclaurin = Taylor 在 \(a=0\) 的特例</strong>。大部分題目不需要從頭推導 — 查表後<strong>替換、微分或積分</strong>即可得到新函數的級數。四大題型:<strong>① 求 Taylor/Maclaurin 級數</strong> ② <strong>餘項誤差估計</strong> ③ <strong>二項級數展開</strong> ④ <strong>用級數求極限/積分</strong>。</div>
+</div>
+<div class="blk">
+<div class="blk-t">信號 → 方法</div>
+<table class="sig-tbl">
+<tr><th>見到咩</th><th>用咩方法</th></tr>
+<tr><td>直接是 \(e^x,\sin x,\cos x,\ln(1+x),\arctan x\)</td><td><span class="arr">→</span> 查表直接寫</td></tr>
+<tr><td>\(e^{-x^2}\)、\(\cos(3x)\) 等已知函數的 composition</td><td><span class="arr">→</span> 查表 + 替換 \(x\) 為其他表達式</td></tr>
+<tr><td>\(\ln(1+x)\)、\(\arctan x\)：從導數認出</td><td><span class="arr">→</span> 對 \(\frac{1}{1+x}\)、\(\frac{1}{1+x^2}\) 逐項積分</td></tr>
+<tr><td>\((1-x)^{-2}\)：從原函數認出</td><td><span class="arr">→</span> 對 \(\frac{1}{1-x}\) 逐項微分</td></tr>
+<tr><td>\((1+x)^m\)，\(m\) 是分數/負數</td><td><span class="arr">→</span> <strong>二項級數</strong>，算 \(\binom{m}{n}\)</td></tr>
+<tr><td>用 \(P_n(x)\) 估計 \(f(x)\)，問誤差多少</td><td><span class="arr">→</span> <strong>Remainder Estimation</strong>:\(|R_n|\le M\frac{|x-a|^{n+1}}{(n+1)!}\)</td></tr>
+<tr><td>非中心展開 \(f(x)\) at \(x=a\ne0\)</td><td><span class="arr">→</span> 令 \(t=x-a\)，化成已知級數；或逐次微分法</td></tr>
+<tr><td>逆向:給級數，問是什麼函數</td><td><span class="arr">→</span> 對比必背表，認出形式(分母有 \(n!\) → \(e^x\)；有 \((2n+1)!\) → \(\sin\))</td></tr>
+</table>
+</div>
+<div class="blk">
+<div class="blk-t t-key">必背 Maclaurin 表</div>
+<div class="fbox">
+\[\frac{1}{1-x}=\sum x^n,\ (-1,1)\qquad e^x=\sum\frac{x^n}{n!},\ \mathbb{R}\qquad \sin x=\sum\frac{(-1)^nx^{2n+1}}{(2n+1)!},\ \mathbb{R}\]
+\[\cos x=\sum\frac{(-1)^nx^{2n}}{(2n)!},\ \mathbb{R}\qquad \ln(1+x)=\sum\frac{(-1)^{n-1}x^n}{n},\ (-1,1]\]
+\[\arctan x=\sum\frac{(-1)^nx^{2n+1}}{2n+1},\ [-1,1]\qquad (1+x)^m=\sum\binom{m}{n}x^n,\ (-1,1)\]
+</div>
+</div>
+<div class="blk">
+<div class="blk-t t-key">餘項 &amp; 二項係數</div>
+<div class="fgrid">
+<div class="fbox"><div class="fbl">Remainder Estimation</div>\[|R_n(x)|\le M\cdot\frac{|x-a|^{n+1}}{(n+1)!}\]
+其中 \(M=\max|f^{(n+1)}(t)|\) 在 \(t\in[a,x]\)</div>
+<div class="fbox"><div class="fbl">廣義二項式係數</div>\[\binom{m}{n}=\frac{m(m-1)\cdots(m-n+1)}{n!}\]
+前幾項:\((1+x)^m=1+mx+\frac{m(m-1)}{2!}x^2+\cdots\)</div>
+</div>
+</div>
+<div class="blk">
+<div class="blk-t t-trap">細節陷阱</div>
+<ul class="trap-list">
+<li><strong>記錯分母</strong> — <span class="fix">\(e^x\) 分母 \(n!\)；\(\ln(1+x)\) 分母 \(n\)；\(\sin x\) 分母 \((2n+1)!\)。三個不同！</span></li>
+<li><strong>Taylor 級數收斂 \(\ne\) 收斂到 \(f\)</strong> — <span class="fix">需驗 \(R_n\to0\)。反例:\(f(x)=e^{-1/x^2}\)，所有 \(f^{(n)}(0)=0\) 但 \(f\ne0\)</span></li>
+<li><strong>代入不在收斂域的 \(x\)</strong> — <span class="fix">\(\arctan(2)\) 不能用 \(\arctan\) 的 Maclaurin(\(|x|>1\) 在收斂域外)</span></li>
+<li><strong>餘項公式 \(M\) 取錯</strong> — <span class="fix">\(M\) 是 \(f^{(n+1)}\) 在整個區間上的最大值，不是某一點的值</span></li>
+<li><strong>兩級數相乘只保留到不夠的項數</strong> — <span class="fix">如果要「前四個非零項」，展開到比需要多一階再合併</span></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cards-hd">練習題 &amp; 解題範例</div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">核心</span><span class="ct">Taylor vs Maclaurin — 係咩，點用</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="g3">
+<div class="box"><div class="bl s">定義</div><p>Maclaurin = Taylor at a=0<br>Taylor at a: Pₙ(x)=Σf⁽ᵏ⁾(a)/k!·(x-a)ᵏ</p></div>
+<div class="box"><div class="bl t">見到話用 Table</div><p>分母有 (1-x)/(1+x) → Geometric<br>含 eˣ，sinx，cos x，ln，arctan → 直接用</p></div>
+<div class="box"><div class="bl t">見到話用 Binomial</div><p>(1+x)^m，m 係分數/負數<br>C(m,n)=m(m-1)···(m-n+1)/n!</p></div>
+</div>
+<div class="m">Table 10.1:
+1/(1-x)  = Σ xⁿ，         |x|&lt;1
+1/(1+x)  = Σ (-1)ⁿxⁿ，    |x|&lt;1
+eˣ       = Σ xⁿ/n!，       all x
+sin x    = Σ (-1)ⁿx²ⁿ⁺¹/(2n+1)!，  all x
+cos x    = Σ (-1)ⁿx²ⁿ/(2n)!，       all x
+ln(1+x)  = Σ (-1)ⁿ⁻¹xⁿ/n，  -1&lt;x≤1
+arctan x = Σ (-1)ⁿx²ⁿ⁺¹/(2n+1)，  |x|≤1
+(1+x)^m  = Σ C(m,n)xⁿ，   |x|&lt;1</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">A9Q1</span><span class="ct">Taylor Polynomial: f(x)=tan x, a=π/4, orders 0–3</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="g3">
+<div class="box"><div class="bl s">見到咩</div><p>指定 order → 需要 f,f',f'',f''' 在 a=π/4</p></div>
+<div class="box"><div class="bl t">方法</div><p>逐次微分 tan x，代入 Taylor 公式</p></div>
+<div class="box"><div class="bl k">關鍵值</div><p>tan(π/4)=1, sec²(π/4)=2<br>f''=4, f'''=16</p></div>
+</div>
+<div class="ans"><strong>ANSWER</strong>P₀=1, P₁=1+2(x-π/4), P₂=P₁+2(x-π/4)², P₃=P₂+8/3·(x-π/4)³</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">A9Q2</span><span class="ct">Maclaurin: (2+x)/(1-x)</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="g3">
+<div class="box"><div class="bl s">見到咩</div><p>分母 (1-x) → Geometric Series</p></div>
+<div class="box"><div class="bl t">最快方法</div><p>(2+x)=3-(1-x)<br>→ 3/(1-x)-1 = 3Σxⁿ-1</p></div>
+<div class="box"><div class="bl k">或 Splitting</div><p>2/(1-x)+x/(1-x)<br>= 2Σxⁿ+Σxⁿ⁺¹</p></div>
+</div>
+<div class="ans"><strong>ANSWER</strong>2+Σ(n≥1)3xⁿ，|x|&lt;1</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">A9Q3</span><span class="ct">Maclaurin: cos√x + ln(cos x)，first 4 nonzero terms</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="g3">
+<div class="box"><div class="bl s">見到咩</div><p>Composition → Substitution</p></div>
+<div class="box"><div class="bl t">cos√x</div><p>Substitute √x into cos series<br>=1-x/2+x²/24-x³/720+···</p></div>
+<div class="box"><div class="bl t">ln(cos x)</div><p>ln(1+u)，u=cos x-1=-x²/2+···<br>u-u²/2+···=-x²/2-x⁴/12+···</p></div>
+</div>
+<div class="ans"><strong>ANSWER</strong>1-x/2-11x²/24-x³/720+···</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">A9Q4</span><span class="ct">Error: P₄(x) estimating eˣ at x=1/2</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="g3">
+<div class="box"><div class="bl s">見到咩</div><p>用 Pₙ 估計 f(x)，問 error</p></div>
+<div class="box"><div class="bl t">公式</div><p>|Rₙ| ≤ M/(n+1)!·|x-a|ⁿ⁺¹<br>M=max|f⁽ⁿ⁺¹⁾| on interval</p></div>
+<div class="box"><div class="bl k">步驟</div><p>①確認n ②求f⁽ⁿ⁺¹⁾ ③搵M ④代入</p></div>
+</div>
+<div class="m">n=4, a=0, x=1/2, f⁽⁵⁾=eˣ≤e^(1/2)&lt;2=M
+|R₄| ≤ 2/5!·(1/2)⁵ = 1/1920 ≈ 0.00052</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">A9Q5</span><span class="ct">Proof: Even/Odd → only even/odd powers in Taylor</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="g3">
+<div class="box"><div class="bl s">見到咩</div><p>f(-x)=±f(x)</p></div>
+<div class="box"><div class="bl t">方法</div><p>代-x入series → compare coefficients term by term</p></div>
+<div class="box"><div class="bl k">結論</div><p>Even: odd aₙ=0<br>Odd: even aₙ=0</p></div>
+</div>
+<div class="m">f(-x)=Σaₙ(-1)ⁿxⁿ
+Even: (-1)ⁿaₙ=aₙ → odd n: aₙ=0 ■
+Odd: (-1)ⁿaₙ=-aₙ → even n: aₙ=0 ■</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">A9Q6</span><span class="ct">Maclaurin: x/∛(1+x)，first 4 terms — Binomial</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="g3">
+<div class="box"><div class="bl s">見到咩</div><p>(1+x)^m，m=-1/3 → Table 冇 → Binomial!</p></div>
+<div class="box"><div class="bl t">C(m,n)</div><p>C(-1/3,1)=-1/3<br>C(-1/3,2)=2/9<br>C(-1/3,3)=-14/81</p></div>
+<div class="box"><div class="bl k">最後</div><p>乘以 x</p></div>
+</div>
+<div class="ans"><strong>ANSWER</strong>x-x²/3+2x³/9-14x⁴/81+···</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">A9Q8</span><span class="ct">Sum: x²-2x³+2²x⁴/2!-··· — 逆向認出 series</span><span class="chev">▼</span></div>
+<div class="cb">
+<div class="g3">
+<div class="box"><div class="bl s">見到咩</div><p>分母有 n!，有 2ⁿ，交替正負</p></div>
+<div class="box"><div class="bl t">方法</div><p>逆向：提出 x²，括號內 = e^(-2x)</p></div>
+<div class="box"><div class="bl t">技巧</div><p>eˣ=Σxⁿ/n! → e^(-2x)=Σ(-2x)ⁿ/n!</p></div>
+</div>
+<div class="ans"><strong>ANSWER</strong>x²e^(-2x)</div>
+</div></div>
+<div class="card"><div class="ch" onclick="T(this)"><span class="qn">CW12</span><span class="ct">Classwork 12 — Taylor Series 綜合</span><span class="chev">▼</span></div>
+<div class="cb">
+<table>
+<tr><th>題目</th><th>方法</th><th>答案</th></tr>
+<tr><td>f(x)=eˣ at x=0</td><td>Maclaurin</td><td>Σxⁿ/n!</td></tr>
+<tr><td>f(x)=ln(x-1) at x=2</td><td>令t=x-2，ln(1+t)</td><td>Σ(-1)ⁿ⁺¹(x-2)ⁿ/n，|x-2|≤1</td></tr>
+<tr><td>f(x)=x³+3x²-1 at x=-1</td><td>令t=x+1，展開</td><td>1+3(x+1)²+(x+1)³</td></tr>
+<tr><td>f(x)=cos x at x=0</td><td>Maclaurin</td><td>Σ(-1)ⁿx²ⁿ/(2n)!</td></tr>
+<tr><td>2x+x cos x</td><td>cos series×x+2x</td><td>3x-x³/2+x⁵/24-···</td></tr>
+<tr><td>½x²cos x</td><td>cos series×x²/2</td><td>x²/2-x⁴/4+x⁶/144-···</td></tr>
+<tr><td>|sin x-x
