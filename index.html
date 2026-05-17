@@ -130,7 +130,7 @@ mjx-container{overflow-x:auto;}
 <tr><td>直角 → 極:含 \(x^2+y^2\)、\(y/x\)</td><td><span class="arr">→</span> 代 \(r^2=x^2+y^2,\ \tan\theta=y/x\)</td></tr>
 <tr><td>求某點切線斜率</td><td><span class="arr">→</span> \(dy/dx\) 極座標公式</td></tr>
 <tr><td>求單條曲線圍成面積</td><td><span class="arr">→</span> \(A=\frac12\int r^2\,d\theta\)</td></tr>
-<tr><td>求兩曲線之間面積</td><td><span class="arr">→</span> 先找交點，\(A=\frac12\int(r_{\text{\text{外}}}^2-r_{\text{\text{內}}}^2)\,d\theta\)</td></tr>
+<tr><td>求兩曲線之間面積</td><td><span class="arr">→</span> 先找交點，\(A=\frac12\int(r_{\text{外}}^2-r_{\text{內}}^2)\,d\theta\)</td></tr>
 <tr><td>求曲線弧長 / 周長</td><td><span class="arr">→</span> \(L=\int\sqrt{r^2+(r')^2}\,d\theta\)</td></tr>
 <tr><td>判斷對稱性</td><td><span class="arr">→</span> 代 \((r,-\theta)\)、\((-r,\theta)\)、\((-r,-\theta)\) 驗證</td></tr>
 <tr><td>求垂直漸近線(如 \(r=a+b\sec\theta\))</td><td><span class="arr">→</span> 算 \(x=r\cos\theta\)，取 \(r\to\infty\) 的極限</td></tr>
@@ -146,7 +146,7 @@ mjx-container{overflow-x:auto;}
 \[\frac{dy}{dx}=\frac{r'\sin\theta+r\cos\theta}{r'\cos\theta-r\sin\theta}\]</div>
 <div class="fbox"><div class="fbl">面積</div>
 \[A=\frac12\int_\alpha^\beta r^2\,d\theta\]
-\[A_{between}=\frac12\int_\alpha^\beta(r_{\text{\text{外}}}^2-r_{\text{\text{內}}}^2)\,d\theta\]</div>
+\[A_{between}=\frac12\int_\alpha^\beta(r_{\text{外}}^2-r_{\text{內}}^2)\,d\theta\]</div>
 <div class="fbox"><div class="fbl">弧長</div>
 \[L=\int_\alpha^\beta\sqrt{r^2+\left(\tfrac{dr}{d\theta}\right)^2}\,d\theta\]</div>
 </div>
@@ -1214,17 +1214,7 @@ function S(id, btn) {
   document.querySelectorAll('.sec').forEach(function(s) { s.classList.remove('on'); });
   document.querySelectorAll('.nb').forEach(function(b) { b.classList.remove('on'); });
   var el = document.getElementById(id);
-  if (el) {
-    el.classList.add('on');
-    if (window.renderMathInElement) {
-      renderMathInElement(el, {
-        delimiters: [
-          {left: '\\[', right: '\\]', display: true},
-          {left: '\\(', right: '\\)', display: false}
-        ]
-      });
-    }
-  }
+  if (el) el.classList.add('on');
   if (btn) btn.classList.add('on');
 }
 function T(h) {
