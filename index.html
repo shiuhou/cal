@@ -433,8 +433,6 @@ tₙ&gt;0: area interpretation (increasing ✓)
 </table>
 </div></div>
 </div>
-
-<!-- ④ 收斂測試 CW10 -->
 <div id="s2" class="sec">
 <div class="sec-title">④ 收斂性測試 <span class="stag">CW10</span></div>
 <div class="core">
@@ -449,7 +447,7 @@ tₙ&gt;0: area interpretation (increasing ✓)
 <table class="sig-tbl">
 <tr><th>見到咩</th><th>用咩</th></tr>
 <tr><td>\(\lim a_n\ne0\) 或不存在</td><td><span class="arr">→</span> <strong>第 \(n\) 項測試</strong> — 直接發散(第一步必查!)</td></tr>
-<tr><td>直接是 \(\frac{1}{n^p}\) 形式</td><td><span class="arr">→</span> <strong>p-series</strong>:\(p>1\) 收，\(p\le1\) 發</td></tr>
+<tr><td>直接是 \(\frac{1}{n^p}\) 形式</td><td><span class="arr">→</span> <strong>p-series</strong>:\(p&gt;1\) 收，\(p\le1\) 發</td></tr>
 <tr><td>多項式比多項式、有根號的分式</td><td><span class="arr">→</span> <strong>Limit Comparison</strong> — 找主導項配 p-series</td></tr>
 <tr><td>能直接看出上界/下界(\(|\sin n|\le1\) 等)</td><td><span class="arr">→</span> <strong>Direct Comparison</strong></td></tr>
 <tr><td>含 \(n!\) 或 \(a^n\)(指數與階乘)</td><td><span class="arr">→</span> <strong>Ratio Test</strong></td></tr>
@@ -461,13 +459,13 @@ tₙ&gt;0: area interpretation (increasing ✓)
 <div class="blk">
 <div class="blk-t t-key">核心公式</div>
 <div class="fgrid">
-<div class="fbox"><div class="fbl">p-series</div>\[\sum\frac{1}{n^p}:\quad p>1\ \text{收},\quad p\le1\ \text{發}\]</div>
-<div class="fbox"><div class="fbl">Ratio Test</div>\[\rho=\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|:\quad \rho<1\ \text{收},\ \rho>1\ \text{發},\ \rho=1\ \text{無結論}\]</div>
+<div class="fbox"><div class="fbl">p-series</div>\[\sum\frac{1}{n^p}:\quad p&gt;1\ \text{收},\quad p\le1\ \text{發}\]</div>
+<div class="fbox"><div class="fbl">Ratio Test</div>\[\rho=\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|:\quad \rho&lt;1\ \text{收},\ \rho&gt;1\ \text{發},\ \rho=1\ \text{無結論}\]</div>
 <div class="fbox"><div class="fbl">Root Test</div>\[\rho=\lim_{n\to\infty}\sqrt[n]{|a_n|}:\quad \text{結論同 Ratio}\]</div>
-<div class="fbox"><div class="fbl">Limit Comparison</div>\[L=\lim\frac{a_n}{b_n}:\quad 0<L<\infty\Rightarrow\text{同收發}\]</div>
+<div class="fbox"><div class="fbl">Limit Comparison</div>\[L=\lim\frac{a_n}{b_n}:\quad 0 &lt; L &lt; \infty\Rightarrow\text{同收發}\]</div>
 </div>
 <div class="fbox"><div class="fbl">Leibniz Test(交替級數)</div>
-\(\sum(-1)^{n-1}u_n\) 收斂，若:① \(u_n>0\) ② \(u_n\ge u_{n+1}\)(遞減) ③ \(\lim u_n=0\)<br>
+\(\sum(-1)^{n-1}u_n\) 收斂，若:① \(u_n&gt;0\) ② \(u_n\ge u_{n+1}\)(遞減) ③ \(\lim u_n=0\)<br>
 誤差估計:\(|S-s_n|\le u_{n+1}\)</div>
 <div class="fbox"><div class="fbl">絕對 vs 條件收斂</div>
 \(\sum|a_n|\) 收 → 絕對收斂；\(\sum|a_n|\) 發但 \(\sum a_n\) 收 → 條件收斂</div>
@@ -476,13 +474,13 @@ tₙ&gt;0: area interpretation (increasing ✓)
 <div class="blk-t t-flow">決策流程</div>
 <div class="flow"><span class="fy">Step 1:</span> lim aₙ ≠ 0? <span class="fy">→ 發散，停</span>
 <span class="fy">Step 2:</span> aₙ 長什麼樣?
- <span class="fy">├</span> 1/nᵖ         → <span class="fy">p-series</span>
- <span class="fy">├</span> 多項式比/根號  → <span class="fy">Limit Comparison</span> (找主導項配 1/nᵖ)
- <span class="fy">├</span> 明顯上下界    → <span class="fy">Direct Comparison</span>
- <span class="fy">├</span> 含 n! 或 aⁿ   → <span class="fy">Ratio Test</span>
- <span class="fy">├</span> 整體 (...)ⁿ   → <span class="fy">Root Test</span>
- <span class="fy">├</span> f(n) 易積分   → <span class="fy">Integral Test</span>
- <span class="fy">└</span> 含 (-1)ⁿ     → 先試<span class="fy">絕對收斂</span>;否則 <span class="fy">Leibniz</span></div>
+ <span class="fy">├</span> 1/nᵖ         → <span class="fy">p-series</span>
+ <span class="fy">├</span> 多項式比/根號  → <span class="fy">Limit Comparison</span> (找主導項配 1/nᵖ)
+ <span class="fy">├</span> 明顯上下界    → <span class="fy">Direct Comparison</span>
+ <span class="fy">├</span> 含 n! 或 aⁿ   → <span class="fy">Ratio Test</span>
+ <span class="fy">├</span> 整體 (...)ⁿ   → <span class="fy">Root Test</span>
+ <span class="fy">├</span> f(n) 易積分   → <span class="fy">Integral Test</span>
+ <span class="fy">└</span> 含 (-1)ⁿ     → 先試<span class="fy">絕對收斂</span>;否則 <span class="fy">Leibniz</span></div>
 </div>
 <div class="blk">
 <div class="blk-t t-trap">細節陷阱</div>
@@ -522,8 +520,8 @@ tₙ&gt;0: area interpretation (increasing ✓)
 </div>
 <div class="m">Σ(-1)ⁿ⁺¹/(n ln n): AST✓，但∫dx/(x ln x)→∞ → Conditionally
 Σ(-1)ⁿ(1-n sin 1/n): |aₙ|~1/(6n²)→conv → Absolutely
-Σ(-1)ⁿ ln n/√n: AST✓，>1/√n→∞ → Conditionally ✓
-Σ(-1)ⁿ/(n-ln n): AST✓，>1/n→∞ → Conditionally ✓</div>
+Σ(-1)ⁿ ln n/√n: AST✓，&gt;1/√n→∞ → Conditionally ✓
+Σ(-1)ⁿ/(n-ln n): AST✓，&gt;1/n→∞ → Conditionally ✓</div>
 </div></div>
 <div class="card"><div class="ch" onclick="T(this)"><span class="qn">INT</span><span class="ct">Integral Test — 見到 ln n 難比較</span><span class="chev">▼</span></div>
 <div class="cb">
@@ -603,7 +601,6 @@ Q5: aₙ={n/2ⁿ odd; 2⁻ⁿ even} → Ratio on odd subseq →1/4 → Converges
 </div></div>
 </div>
 
-<!-- ⑤ 冪級數 CW11 — FIXED: added core block -->
 <div id="s3" class="sec">
 <div class="sec-title">⑤ 冪級數 <span class="stag">CW11</span></div>
 <div class="core">
@@ -633,7 +630,7 @@ Q5: aₙ={n/2ⁿ odd; 2⁻ⁿ even} → Ratio on odd subseq →1/4 → Converges
 \[\int f(x)\,dx=\sum\frac{a_n}{n+1}(x-c)^{n+1}+C\]
 <span style="color:var(--muted);font-size:.8rem;">收斂半徑不變，但端點可能改變！</span></div>
 </div>
-<div class="fbox"><div class="fbl">出發點(★必記)</div>\[\frac{1}{1-x}=\sum_{n=0}^{\infty}x^n,\quad |x|<1\]</div>
+<div class="fbox"><div class="fbl">出發點(★必記)</div>\[\frac{1}{1-x}=\sum_{n=0}^{\infty}x^n,\quad |x|&lt;1\]</div>
 </div>
 <div class="blk">
 <div class="blk-t t-flow">決策流程</div>
@@ -645,10 +642,10 @@ Step 4: 寫出最終區間 → <span class="fy">四種可能: () [] [) (]</span>
 
 <span class="fy">表達函數為冪級數</span>
 從 1/(1-x) = Σxⁿ 出發
- ├ 1/(1+x):  x → -x
- ├ ln(1+x):  對 1/(1+x) 積分
- ├ arctan x: 對 1/(1+x²) 積分
- └ (1-x)⁻²: 對 1/(1-x) 微分</div>
+ ├ 1/(1+x):  x → -x
+ ├ ln(1+x):  對 1/(1+x) 積分
+ ├ arctan x: 對 1/(1+x²) 積分
+ └ (1-x)⁻²: 對 1/(1-x) 微分</div>
 </div>
 <div class="blk">
 <div class="blk-t t-trap">細節陷阱</div>
@@ -750,7 +747,6 @@ Term-by-term integration: Σ(-1/2)ⁿ(x-3)ⁿ⁺¹/(n+1)=2ln|x-1|，x∈(1,5]</d
 </div></div>
 </div>
 
-<!-- ⑥ Taylor CW12 — FIXED: added core block -->
 <div id="s1" class="sec">
 <div class="sec-title">⑥ Taylor &amp; Maclaurin 級數 <span class="stag">CW12</span></div>
 <div class="core">
@@ -796,7 +792,7 @@ Term-by-term integration: Σ(-1/2)ⁿ(x-3)ⁿ⁺¹/(n+1)=2ln|x-1|，x∈(1,5]</d
 <ul class="trap-list">
 <li><strong>記錯分母</strong> — <span class="fix">\(e^x\) 分母 \(n!\)；\(\ln(1+x)\) 分母 \(n\)；\(\sin x\) 分母 \((2n+1)!\)。三個不同！</span></li>
 <li><strong>Taylor 級數收斂 \(\ne\) 收斂到 \(f\)</strong> — <span class="fix">需驗 \(R_n\to0\)。反例:\(f(x)=e^{-1/x^2}\)，所有 \(f^{(n)}(0)=0\) 但 \(f\ne0\)</span></li>
-<li><strong>代入不在收斂域的 \(x\)</strong> — <span class="fix">\(\arctan(2)\) 不能用 \(\arctan\) 的 Maclaurin(\(|x|>1\) 在收斂域外)</span></li>
+<li><strong>代入不在收斂域的 \(x\)</strong> — <span class="fix">\(\arctan(2)\) 不能用 \(\arctan\) 的 Maclaurin(\(|x|&gt;1\) 在收斂域外)</span></li>
 <li><strong>餘項公式 \(M\) 取錯</strong> — <span class="fix">\(M\) 是 \(f^{(n+1)}\) 在整個區間上的最大值，不是某一點的值</span></li>
 <li><strong>兩級數相乘只保留到不夠的項數</strong> — <span class="fix">如果要「前四個非零項」，展開到比需要多一階再合併</span></li>
 </ul>
@@ -812,11 +808,11 @@ Term-by-term integration: Σ(-1/2)ⁿ(x-3)ⁿ⁺¹/(n+1)=2ln|x-1|，x∈(1,5]</d
 <div class="box"><div class="bl t">見到話用 Binomial</div><p>(1+x)^m，m 係分數/負數<br>C(m,n)=m(m-1)···(m-n+1)/n!</p></div>
 </div>
 <div class="m">Table 10.1:
-1/(1-x)  = Σ xⁿ，         |x|&lt;1
+1/(1-x)  = Σ xⁿ，          |x|&lt;1
 1/(1+x)  = Σ (-1)ⁿxⁿ，    |x|&lt;1
 eˣ       = Σ xⁿ/n!，       all x
 sin x    = Σ (-1)ⁿx²ⁿ⁺¹/(2n+1)!，  all x
-cos x    = Σ (-1)ⁿx²ⁿ/(2n)!，       all x
+cos x    = Σ (-1)ⁿx²ⁿ/(2n)!，        all x
 ln(1+x)  = Σ (-1)ⁿ⁻¹xⁿ/n，  -1&lt;x≤1
 arctan x = Σ (-1)ⁿx²ⁿ⁺¹/(2n+1)，  |x|≤1
 (1+x)^m  = Σ C(m,n)xⁿ，   |x|&lt;1</div>
@@ -855,7 +851,7 @@ arctan x = Σ (-1)ⁿx²ⁿ⁺¹/(2n+1)，  |x|≤1
 <div class="box"><div class="bl t">公式</div><p>|Rₙ| ≤ M/(n+1)!·|x-a|ⁿ⁺¹<br>M=max|f⁽ⁿ⁺¹⁾| on interval</p></div>
 <div class="box"><div class="bl k">步驟</div><p>①確認n ②求f⁽ⁿ⁺¹⁾ ③搵M ④代入</p></div>
 </div>
-<div class="m">n=4, a=0, x=1/2, f⁽⁵⁾=eˣ≤e^(1/2)&lt;2=M
+<div class="m">n=4, a=0, x=1/2, f⁽⁵⁾=eˣ≤e^(1/2) &lt; 2=M
 |R₄| ≤ 2/5!·(1/2)⁵ = 1/1920 ≈ 0.00052</div>
 </div></div>
 <div class="card"><div class="ch" onclick="T(this)"><span class="qn">A9Q5</span><span class="ct">Proof: Even/Odd → only even/odd powers in Taylor</span><span class="chev">▼</span></div>
@@ -897,7 +893,7 @@ Odd: (-1)ⁿaₙ=-aₙ → even n: aₙ=0 ■</div>
 <tr><td>f(x)=cos x at x=0</td><td>Maclaurin</td><td>Σ(-1)ⁿx²ⁿ/(2n)!</td></tr>
 <tr><td>2x+x cos x</td><td>cos series×x+2x</td><td>3x-x³/2+x⁵/24-···</td></tr>
 <tr><td>½x²cos x</td><td>cos series×x²/2</td><td>x²/2-x⁴/4+x⁶/144-···</td></tr>
-<tr><td>|sin x-x+x³/3!|≤3×10⁻⁴</td><td>R₃≤x⁵/5!≤3×10⁻⁴</td><td>|x|≤(360×10⁻⁴)^(1/5)</td></tr>
+<tr><td>|sin x-x+x³/3!|≤3×10⁻⁴</td><td>|R₃| ≤ x⁵/5! ≤ 3×10⁻⁴</td><td>|x|≤(360×10⁻⁴)^(1/5)</td></tr>
 <tr><td>√(1+x)</td><td>Binomial m=1/2</td><td>1+x/2-x²/8+x³/16-···</td></tr>
 <tr><td>∫₀¹sin x² dx to 3dp</td><td>sin(x²)=x²-x⁶/6+···積分</td><td>≈1/3-1/42≈0.310</td></tr>
 <tr><td>lim(x→1) ln x/(x-1)</td><td>ln x=ln(1+(x-1))，t=x-1</td><td>1</td></tr>
@@ -912,7 +908,6 @@ f(x)={0,x=0; e^(-1/x²),x≠0}: all f⁽ⁿ⁾(0)=0
 </div></div>
 </div>
 
-<!-- ⑦ 用級數求極限 — FIXED: added core block -->
 <div id="s7" class="sec">
 <div class="sec-title">⑦ 用級數求極限 <span class="stag">CW12</span></div>
 <div class="core">
@@ -936,7 +931,7 @@ f(x)={0,x=0; e^(-1/x²),x≠0}: all f⁽ⁿ⁾(0)=0
 <div class="blk-t t-key">常用展開(x→0)</div>
 <div class="fbox">
 \[\sin x=x-\frac{x^3}{6}+\frac{x^5}{120}-\cdots\qquad \cos x=1-\frac{x^2}{2}+\frac{x^4}{24}-\cdots\]
-\[\tan x=x+\frac{x^3}{3}+\frac{2x^5}{15}+\cdots\qquad e^x=1+x+\frac{x^2}{2}+\frac{x^3}{6}+\cdots\]
+\[\tan x=x+\frac{x^3}{3}+\frac{2x^5}{15}-\cdots\qquad e^x=1+x+\frac{x^2}{2}+\frac{x^3}{6}+\cdots\]
 \[\ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots\qquad \arctan x=x-\frac{x^3}{3}+\frac{x^5}{5}-\cdots\]
 </div>
 </div>
@@ -989,7 +984,6 @@ csc x - 1/x: 通分 → (x-sin x)/(x sin x) → 展開</div>
 </div></div>
 </div>
 
-<!-- ⑧ ODE CW13 -->
 <div id="s9" class="sec">
 <div class="sec-title">⑧ 一階微分方程 <span class="stag">CW13</span></div>
 <div class="core">
@@ -1025,7 +1019,7 @@ csc x - 1/x: 通分 → (x-sin x)/(x sin x) → 展開</div>
 <div class="blk-t t-flow">決策流程</div>
 <div class="flow">看到 ODE → <span class="fy">先化成標準形式</span>
 <span class="fy">├</span> 右邊能分成 f(x)·g(y)? → <span class="fy">分離變數</span>
-<span class="fy">├</span> 形如 y'+P(x)y=Q(x)?  → <span class="fy">積分因子</span>
+<span class="fy">├</span> 形如 y'+P(x)y=Q(x)?  → <span class="fy">積分因子</span>
 <span class="fy">└</span> 給初始值+步長，問近似? → <span class="fy">Euler's Method</span>
 <span class="fc">有 Initial Condition → 解完代入求 C</span></div>
 </div>
@@ -1118,7 +1112,6 @@ y'=y-x²: (0,0)→0, (1,0)→-1, (0,1)→1</div>
 </div></div>
 </div>
 
-<!-- ★ 決策樹總表 — FIXED: added core block -->
 <div id="s10" class="sec">
 <div class="sec-title">★ 決策樹總表 <span class="stag">CHEAT SHEET</span></div>
 <div class="core">
@@ -1130,13 +1123,13 @@ y'=y-x²: (0,0)→0, (1,0)→-1, (0,1)→1</div>
 </div>
 <div class="blk">
 <div class="blk-t t-flow">總覽：各章觸發信號</div>
-<div class="flow"><span class="fy">極座標</span>  → 轉換/切線/面積/弧長 → 見 ① 頁
+<div class="flow"><span class="fy">極座標</span>  → 轉換/切線/面積/弧長 → 見 ① 頁
 <span class="fy">數列極限</span> → 除最高次/夾擠/有理化/eᵃ → 見 ③ 頁
 <span class="fy">收斂測試</span> → nth-term/p-series/Ratio/Root/LCT/AST → 見 ④ 頁
-<span class="fy">冪級數</span>   → Ratio求R/代端點/逐項微積分 → 見 ⑤ 頁
-<span class="fy">Taylor</span>   → 查表/替換/Binomial/餘項估計 → 見 ⑥ 頁
-<span class="fy">極限</span>     → Maclaurin展開約分 → 見 ⑦ 頁
-<span class="fy">ODE</span>      → 分離/積分因子/Euler → 見 ⑧ 頁</div>
+<span class="fy">冪級數</span>   → Ratio求R/代端點/逐項微積分 → 見 ⑤ 頁
+<span class="fy">Taylor</span>   → 查表/替換/Binomial/餘項估計 → 見 ⑥ 頁
+<span class="fy">極限</span>     → Maclaurin展開約分 → 見 ⑦ 頁
+<span class="fy">ODE</span>      → 分離/積分因子/Euler → 見 ⑧ 頁</div>
 </div>
 </div>
 </div>
@@ -1180,15 +1173,15 @@ y'=y-x²: (0,0)→0, (1,0)→-1, (0,1)→1</div>
 </div></div>
 <div class="card"><div class="ch" onclick="T(this)"><span class="qn">TABLE</span><span class="ct">Table 10.1 — Frequently Used Taylor Series</span><span class="chev">▼</span></div>
 <div class="cb">
-<div class="m">1/(1-x)  = Σ xⁿ，                      |x|&lt;1
-1/(1+x)  = Σ (-1)ⁿxⁿ，                 |x|&lt;1
-eˣ       = Σ xⁿ/n!，                    all x
-sin x    = Σ (-1)ⁿx^(2n+1)/(2n+1)!，   all x
-cos x    = Σ (-1)ⁿx^(2n)/(2n)!，        all x
-ln(1+x)  = Σ (-1)ⁿ⁻¹xⁿ/n，            -1&lt;x≤1
-arctan x = Σ (-1)ⁿx^(2n+1)/(2n+1)，   |x|≤1
-(1+x)^m  = Σ C(m,n)xⁿ，               |x|&lt;1
-C(m,n)   = m(m-1)···(m-n+1)/n!</div>
+<div class="m">1/(1-x)  = Σ xⁿ，                      |x|&lt;1
+1/(1+x)  = Σ (-1)ⁿxⁿ，                 |x|&lt;1
+eˣ       = Σ xⁿ/n!，                    all x
+sin x    = Σ (-1)ⁿx^(2n+1)/(2n+1)!，   all x
+cos x    = Σ (-1)ⁿx^(2n)/(2n)!，        all x
+ln(1+x)  = Σ (-1)ⁿ⁻¹xⁿ/n，            -1&lt;x≤1
+arctan x = Σ (-1)ⁿx^(2n+1)/(2n+1)，   |x|≤1
+(1+x)^m  = Σ C(m,n)xⁿ，               |x|&lt;1
+C(m,n)   = m(m-1)···(m-n+1)/n!</div>
 </div></div>
 <div class="card"><div class="ch" onclick="T(this)"><span class="qn">TESTS</span><span class="ct">Series Test 選擇速查</span><span class="chev">▼</span></div>
 <div class="cb">
@@ -1207,22 +1200,20 @@ C(m,n)   = m(m-1)···(m-n+1)/n!</div>
 </div></div>
 </div>
 
-</div><!-- end .wrap -->
-
-<script>
+</div><script>
 function S(id, btn) {
-  document.querySelectorAll('.sec').forEach(function(s) { s.classList.remove('on'); });
-  document.querySelectorAll('.nb').forEach(function(b) { b.classList.remove('on'); });
-  var el = document.getElementById(id);
-  if (el) el.classList.add('on');
-  if (btn) btn.classList.add('on');
+  document.querySelectorAll('.sec').forEach(function(s) { s.classList.remove('on'); });
+  document.querySelectorAll('.nb').forEach(function(b) { b.classList.remove('on'); });
+  var el = document.getElementById(id);
+  if (el) el.classList.add('on');
+  if (btn) btn.classList.add('on');
 }
 function T(h) {
-  var b = h.nextElementSibling;
-  if (!b) return;
-  var isOpen = b.classList.contains('on');
-  b.classList.toggle('on', !isOpen);
-  h.classList.toggle('on', !isOpen);
+  var b = h.nextElementSibling;
+  if (!b) return;
+  var isOpen = b.classList.contains('on');
+  b.classList.toggle('on', !isOpen);
+  h.classList.toggle('on', !isOpen);
 }
 </script>
 </body>
